@@ -50,7 +50,6 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-    console.log(`User ${user.displayName} is now logged in`);
   };
 
   return (
