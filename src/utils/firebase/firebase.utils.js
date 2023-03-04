@@ -38,12 +38,10 @@ export const createUserDocFromAuth = async (userAuth, additionalInfo = {}) => {
   if (!userAuth) return;
 
   const userDocRef = doc(db, "users", userAuth.uid);
-  console.log("🚀 ~ file: firebase.utils.js:37 ~ createUserDocFromAuth ~ userDocRef", userDocRef);
 
   const userSnapshot = await getDoc(userDocRef);
 
   if (userSnapshot.exists()) {
-    console.log("USER EXISTS");
     return userDocRef;
   }
 
