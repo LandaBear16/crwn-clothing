@@ -7,16 +7,16 @@ import Navigation from "./routes/navigation/navigation.component";
 import Shop from "./routes/shop/shop.component";
 
 const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Navigation />}>
-        <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} />
-        <Route path="login" element={<Authentication />} />
-        <Route path="checkout" element={<Checkout />} />
-      </Route>
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<Navigation />}>
+                <Route index element={<Home />} />
+                <Route path="shop/*" element={<Shop />} />
+                <Route path="login" element={<Authentication />} />
+                <Route path="checkout" element={<Checkout />} />
+            </Route>
+        </Routes>
+    );
 };
 
 export default App;
