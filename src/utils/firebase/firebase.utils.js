@@ -40,7 +40,6 @@ export const getCategoriesAndDocuments = async () => {
 
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map((doc) => {
-        console.log(doc);
         return doc.data();
     });
 };
