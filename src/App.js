@@ -8,7 +8,7 @@ import Checkout from './routes/checkout/checkout.component';
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import Shop from './routes/shop/shop.component';
-import { setCurrentUser } from './store/user/user.reducer';
+import { setCurrentUser } from './store/user/user.slice';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,8 @@ const App = () => {
             if (user) {
                 createUserDocFromAuth(user);
             }
-            dispatch(setCurrentUser(user));
+            const pickedUser = user && (({ accessToken, email }) => ({ accessToken, email }))(user);
+            dispatch(setCurrentUser(pickedUser));
         });
 
         return unsubscribe;
