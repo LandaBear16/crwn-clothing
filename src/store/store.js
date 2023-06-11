@@ -5,6 +5,8 @@ import logger from 'redux-logger';
 
 import { rootReducer } from './root-reducer';
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 const persistConfig = {
     key: 'root',
     storage,
