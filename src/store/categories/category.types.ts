@@ -1,5 +1,3 @@
-import { categoriesReducer } from './category.slice';
-
 export type CategoryItem = {
     id: string;
     name: string;
