@@ -1,8 +1,9 @@
 import DirectoryItem from '../directory-item/directory-item.component';
 
 import { DirectoryContainer } from './directory.styles';
+import { DirectoryCategory } from '../../store/categories/category.types';
 
-const categories = [
+const categories: DirectoryCategory[] = [
     {
         id: 1,
         title: 'hats',

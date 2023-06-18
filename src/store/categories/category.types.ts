@@ -18,3 +18,14 @@ export type CategoryMap = {
 export type CategoriesState = {
     categories: Category[];
 };
+
+export type DirectoryCategory = {
+    id: number;
+    title: string;
+    imageUrl: string;
+    route: string;
+};
+
+export type ProductCardProps = {
+    product: CategoryItem;
+};
