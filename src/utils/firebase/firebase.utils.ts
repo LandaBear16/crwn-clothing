@@ -25,6 +25,8 @@ import {
 } from 'firebase/firestore';
 import { Category } from '../../store/categories/category.types';
 
+import { AdditionalInformation, UserData } from '../../store/user/user.types';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: 'AIzaSyCI0HMjYMVwv_hxogMO5Zhjul98vUjnHQo',
@@ -76,16 +78,6 @@ export const addCollectionAndDocs = async <T extends ObjectToAdd>(
 
     await batch.commit();
     console.log('done');
-};
-
-export type AdditionalInformation = {
-    displayName?: string;
-};
-
-export type UserData = {
-    createdAt: Date;
-    displayName: string;
-    email: string;
 };
 
 export const createUserDocFromAuth = async (

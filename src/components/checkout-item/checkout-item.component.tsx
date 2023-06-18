@@ -10,7 +10,7 @@ import {
     Value,
     RemoveButton,
 } from './checkout-item.styles';
-import { CartItemProps } from '../../@types/cart/cart.types';
+import { CartItemProps } from '../../store/cart/cart.types';
 
 const CheckoutItem = ({ cartItem }: CartItemProps) => {
     const { name, price, quantity, imageUrl } = cartItem;
