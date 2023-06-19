@@ -7,8 +7,12 @@ import ProductCard from '../../components/product-card/product-card.component';
 
 import { CategoryContainer } from './category.styles.jsx';
 
+type CategoryParams = {
+    category: string;
+};
+
 const Category = () => {
-    const { category } = useParams();
+    const { category } = useParams<keyof CategoryParams>() as CategoryParams;
     const categoriesMap = useSelector(selectCategoryMap);
 
     const [products, setProducts] = useState(categoriesMap[category]);
