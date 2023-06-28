@@ -5,8 +5,9 @@ import FormInput from '../form/form-input.component';
 import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 
-import './sign-in-form.styles.jsx';
-import { ButtonsContainer, SignUpContainer } from './sign-in-form.styles.jsx';
+import { ButtonsContainer, SignUpContainer } from './sign-in-form.styles';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../store/user/user.slice';
 
 const defaultFormFields = {
     email: '',
@@ -16,6 +17,7 @@ const defaultFormFields = {
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
+    const dispatch = useDispatch();
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -25,7 +27,7 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            await signInAuthUserWithEmailAndPassword(email, password);
+            dispatch(signUp({ email, password }));
             resetFormFields();
         } catch (error) {
             if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {

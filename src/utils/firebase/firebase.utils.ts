@@ -84,11 +84,13 @@ export const createUserDocFromAuth = async (
     userAuth: User,
     additionalInformation: AdditionalInformation = {} as AdditionalInformation
 ): Promise<QueryDocumentSnapshot<UserData> | void> => {
+    console.log('userAuth', userAuth);
     if (!userAuth) return;
 
     const userDocRef = doc(db, 'users', userAuth.uid);
 
     const userSnapshot = await getDoc(userDocRef);
+    console.log('🚀 ~ file: firebase.utils.ts:93 ~ userSnapshot:', userSnapshot);
 
     if (!userSnapshot.exists()) {
         const { displayName, email } = userAuth;

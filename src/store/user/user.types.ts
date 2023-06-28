@@ -10,4 +10,6 @@ export type UserData = {
 
 export type UserState = {
     currentUser: UserData | null;
+    loading: 'idle' | 'pending';
+    error: string | null;
 };
